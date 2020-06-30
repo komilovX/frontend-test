@@ -1,0 +1,196 @@
+@import './variables';
+@import './animations';
+.form {
+  position: relative;
+  padding: 2rem 3rem;
+  background-color: $color-white;
+  width: 45rem;
+  &-title {
+    font-size: 2.8rem;
+  }
+  @media (max-width: 600px) {
+    max-width: 35rem;
+  }
+}
+.input-field {
+  padding: 1rem 0;
+
+  .label {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    display: inline-block;
+  }
+  .input {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    padding: 4px;
+    width: 100%;
+    border: 1px solid $color-grey-dark;
+    border-radius: 2px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+
+    &.invalid {
+      border: 1px solid $color-danger;
+    }
+  }
+  .error-text {
+    display: inline-block;
+    color: $color-danger;
+    font-size: 1.3rem;
+    margin-top: 5px;
+  }
+}
+
+// Button
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 1.5rem 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 700;
+  outline: none;
+  &.small {
+    padding: 0.8rem 1rem;
+    font-weight: 500;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &-primary {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+  &-success {
+    color: $color-white;
+    background-color: $color-success;
+  }
+  &-text {
+    background-color: transparent;
+    color: $color-primary;
+  }
+}
+
+// message
+.message {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  max-width: 400px;
+  border-radius: 5px;
+  font-size: $default-font;
+  animation: moveInBottom 0.5s ease-out 0.2s;
+  animation-fill-mode: backwards;
+  color: $color-white;
+  &-success {
+    background-color: $color-success;
+  }
+  &-info {
+    background-color: $color-info;
+  }
+  &-error {
+    background-color: $color-danger;
+  }
+  &.close {
+    animation: moveInTop 0.5s ease-out 0.2s;
+  }
+}
+
+.rate {
+  display: inline-block;
+  cursor: pointer;
+  .star {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background-color: gold;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    -webkit-clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    &:not(:last-child) {
+      margin-right: 2px;
+    }
+    &.checked::after {
+      background-color: gold;
+    }
+  }
+  .star::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    -webkit-clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+  }
+  &.small {
+    display: block;
+    .star {
+      width: 20px;
+      height: 20px;
+    }
+    .star::after {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
